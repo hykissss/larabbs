@@ -47,10 +47,16 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //Validator 表单验证的 make() 方法第三个参数是自定义错误提示
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            //第二个 captcha 是 mews/captcha 自定义的表单验证规则。
+            'captcha' => 'required|captcha',
+        ], [
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '请输入正确的验证码',
         ]);
     }
 
