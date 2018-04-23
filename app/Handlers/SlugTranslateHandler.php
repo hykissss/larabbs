@@ -42,7 +42,7 @@ class SlugTranslateHandler
 
         $result = json_decode($response->getBody(), true);
         /**
-        获取结果，如果请求成功， 结果如下：
+        获取结果，如果请求成功，dd($result) 结果如下：
 
         array:3 [▼
             "from" => "zh"
